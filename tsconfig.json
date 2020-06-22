@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es2015",
+		"lib": ["es2015", "es6"],
+		"types": ["reflect-metadata", "jest"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"sourceMap": true,
+		"declaration": false,
+		"outDir": "./dist",
+		//"baseUrl": "./",
+		"removeComments": true,
+		"allowJs": true,
+		"allowSyntheticDefaultImports": false,
+		"esModuleInterop": false,
+		"strict": false,
+		"skipLibCheck": true
+	},
+	"files": ["./src/index.ts"],
+	"include": ["./src/**/*.ts"],
+	"exclude": ["node_modules", "docs", "dist"]
+}

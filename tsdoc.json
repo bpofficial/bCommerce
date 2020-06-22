@@ -1,0 +1,37 @@
+{
+	"tags":
+	{
+		"allowUnknownTags" : true
+	},
+	"plugins":[
+		 "plugins/markdown"
+		,"/Users/brayden/Desktop/Servers/bCommerce/node_modules/tsdoc/template/plugins/TSDoc.js"
+	],
+	"opts":
+	{
+		"template"	:"/Users/brayden/Desktop/Servers/bCommerce/node_modules/tsdoc/template",
+		"recurse"	:"true"
+	},
+	"templates" : {
+		"cleverLinks"     : false,
+		"monospaceLinks"  : false
+	},
+	"source":
+	{
+		"includePattern": "(\\.d)?\\.ts$"
+	},
+	"markdown"  : {
+		"parser"   : "gfm",
+		"hardwrap" : true
+	},
+	"tsdoc":{
+		"source"		:"/Users/brayden/Desktop/Servers/bCommerce/src/",
+		"destination"	:"/Users/brayden/Desktop/Servers/bCommerce/docs",
+		"tutorials"		:"",
+		"systemName"	: "bCommerce",
+		"footer"		: "",
+		"copyright"		: "bCommerce Copyright © 2020 brayden.",
+		"outputSourceFiles" : true,
+		"commentsOnly": true
+	}
+}

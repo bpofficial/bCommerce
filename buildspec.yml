@@ -1,0 +1,36 @@
+version: 0.2
+
+eb_codebuild_settings:
+    CodeBuildServiceRole: arn:aws:iam::155560017477:role/service-role/codebuild-ballistic-api-build-service-role
+    ComputeType: BUILD_GENERAL1_SMALL
+    Image: aws/codebuild/amazonlinux2-x86_64-standard:1.0
+    Timeout: 60
+phases:
+    install:
+        runtime-versions:
+            nodejs: 10
+        commands:
+            - npm install -g typescript
+    pre_build:
+        commands:
+            - echo Installing source NPM dependencies...
+            - npm install
+    build:
+        commands:
+            - echo Build started on `date`
+            - echo Linting code
+            - npm run lint
+            - echo Testing code
+            - npm run test
+            - echo Building code
+            - npm run build
+            - echo Fetching production dependencies
+            - npm run postbuild
+    post_build:
+        commands:
+            - echo Build completed on `date`
+# Include only the files required for your application to run.
+artifacts:
+    files:
+        - dist/**/*
+        - Procfile

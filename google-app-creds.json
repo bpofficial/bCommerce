@@ -1,0 +1,12 @@
+{
+	"type": "service_account",
+	"project_id": "ballistic-beer-website",
+	"private_key_id": "450f96d6556d24dbb6cd48559b58fc6f039a29e5",
+	"private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDNQG6rpfQfQh4T\n/EckmtTvDD0a7G2giV38S7xOM1QpbkkTWToUewSoh3kQmLIAgog55VDJjHXoolBj\nmiJVLalDIy86XznZT5H2UBpyEa+335rI+qbwOs4uunD+wNZCDjDG3RJdKsoPm1Of\nELkg3hwWrHhWL5bgCJrq2dt5SzpM0gdTMplOZBZSJqak+ljJdsR4WnHPQ28t4liO\n7nLHLwRxCzdphKjvhmJx0AjYcIT2+Rkgc+LzGOY0kGcaDklMyQiUJJUiwL3i91m2\n2yId8h/Ybyd0lbRDHpYgGEZzzCqBA/yOV2LhcUPpaEDbFCwoxsdoHrIRJZj1CJ02\n4rOIFuBLAgMBAAECggEAB1j9o6TSuuwigh0/X/BjaNVVOkM2RdxB1ZGegZj1Zwnj\nXgJzmx6v3+dnOzCQ+rl+VL6m6DgtH/4jhsh43yskMPRi/e6nwv95Hn2BA0FeOxf4\nBUBxcA5WEDbGnpAOFRpHi7u63kP1LNINXP3iKreL/0T+uWy4592jy7F8P/jXjIvN\n0erl6GuIIXmlIJOrFiBlV7G3fBcJT64MkSgi7wAq2a+q8hxy0nzTV4svCE7t5zXK\nm0mIrFjUSIblK8Zoqz//cy1HxQsU/xRCaYmMJTjBJUBxTpuemre3vkWfAJOHFQBG\nJYIOsbKVsDw+ckQpx3yRWnlpt/U0cZCv6Rrc0ZfyeQKBgQDwoKZDI5ML5n54Ws8f\nfGDSlE14L+mOYf/q55CeRhF5vnH0JgK5zZphvurUB7mnseTarJfktNUidTer+d4z\n3WE3nuo5lsw9bYCocsaEBAelYsV2I/fQt8drRCppiw/jxRQV/0oTY/MEKghCjU4L\nAthbykO827RRKLbtKxvfRe2sYwKBgQDaXTo5G3s0GkIUXG+ApH2WfAA7hIRQTTQk\nIULTGoXzVdNBTUj7b967GKT17o/i6vWwderQyXy1qkoQ2fvmKL6scGsE0VZMnE2k\nuo209vRsKiIY3JbnbMCk+S0s8mkwJMrtLyX+GsQj4Hd6N1w3HnOgWTEE9+44NWJ+\nj+us6mE8+QKBgAaRjBhXF0OC5j7o07CbV5VIARlfzXNaj37dFWCMrxtwrHGqu/ZQ\ne39hk8137IR8Ya/qeDcBDLRlGMD0EDHAQFAhYWlzCV4/5/wxLeQarA7CtHs2HiSv\nb50o/jNlXWitT5AOKPqAhvi9IP6YFuJMEJXo3pKAONriTqQIwjkFEqjbAoGATiZ1\ncwDJ3EDVi3H1mgXEyLnCX4qyzAaFdbTNtL3WWNtLiyB80Tgdb7qHN1lU97J9kdTx\n4B1sW5wBe/x38cx9STvGoWfGSg7anu0BUFXd7mQ55cn03AiI/cIMD/0F9mwEkFSC\ndWng7rIkMIJlp3hni2jAaXXONSGuCXu6rh0IBgkCgYBw+ezNFhZDnydGX8KbXyPf\n107cGmWKuxELmHm7i9hXLV5EriB2/iFo/obYOAxSmkrY/9wpHxxuccpPmWXjzPu/\nZFwQt49clz+HXQfbsPwLZjJ+xRKhrYrBbnc7A8ts+jhoqEmFO5qRBgypYxhzq0O+\nrhxipBmlgpdhF6brNh77Fg==\n-----END PRIVATE KEY-----\n",
+	"client_email": "ballistic-dash-ga-service-acco@ballistic-beer-website.iam.gserviceaccount.com",
+	"client_id": "114200425942457529808",
+	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	"token_uri": "https://oauth2.googleapis.com/token",
+	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ballistic-dash-ga-service-acco%40ballistic-beer-website.iam.gserviceaccount.com"
+}

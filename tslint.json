@@ -1,0 +1,49 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "tslint:latest",
+        "tslint-config-prettier"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-implicit-dependencies": false,
+        "object-literal-sort-keys": false,
+        "no-invalid-template-strings": false,
+        "no-submodule-imports": false,
+        "no-var-requires": false
+    },
+    "overrides": [{
+        "files": [
+            "src/tests/**/*.ts"
+        ],
+        "env": {
+            "jest": true
+        },
+        "plugins": ["jest"],
+        "rules": {
+            "jest/no-disabled-tests": "warn",
+            "jest/no-focused-tests": "error",
+            "jest/no-identical-title": "error",
+            "jest/prefer-to-have-length": "warn",
+            "jest/valid-expect": "error"
+        }
+    }],
+    "settings": {
+        "import/resolver": {
+            "alias": [
+                ["src/", "./src"]
+            ]
+        }
+    }
+}
