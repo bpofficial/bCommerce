@@ -1,6 +1,6 @@
 import {EntityRepository} from '@tsed/typeorm';
 import {Repository} from 'typeorm';
-import CommerceCustomer from './CustomerEntity';
+import CommerceCustomer from '../Entities/CustomerEntity';
 
 @EntityRepository(CommerceCustomer)
 export default class CommerceCustomerRepository extends Repository<

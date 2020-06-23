@@ -2,8 +2,8 @@ import {Inject, Service} from '@tsed/di';
 import {BadRequest} from '@tsed/exceptions';
 import {UseConnection} from '@tsed/typeorm';
 import {FindOperator} from 'typeorm';
-import CommerceCustomer from '../../Entities/CustomerEntity';
-import CommerceCustomerRepository from '../../Entities/CustomerRepository';
+import CommerceCustomer from '../../Database/Entities/CustomerEntity';
+import CommerceCustomerRepository from '../../Database/Repositories/CustomerRepository';
 
 @Service()
 export default class CommerceCustomerService {

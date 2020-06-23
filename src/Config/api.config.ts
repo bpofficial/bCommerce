@@ -1,8 +1,8 @@
 import * as Path from 'path';
 import Controllers from '../Controllers/';
-import Entities from '../Entities';
+import Entities from '../Database';
 import Middleware from '../Middleware';
-import Protocols from '../Protocols';
+import Protocols from '../Security';
 
 const rootDir = Path.resolve(__dirname, '../src');
 export default {

@@ -1,3 +1,7 @@
+/**
+ *
+ * Author: Brayden Phillips
+ */
 import {Controller, Get, Status} from '@tsed/common';
 
 @Controller('/health')

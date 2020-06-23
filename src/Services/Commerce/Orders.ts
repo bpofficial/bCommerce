@@ -1,7 +1,7 @@
 import {Inject, Service} from '@tsed/di';
 import {v4 as uuid} from 'uuid';
-import CommerceOrder from '../../Entities/OrderEntity';
-import CommerceOrderRepository from '../../Entities/OrderRepository';
+import CommerceOrder from '../../Database/Entities/OrderEntity';
+import CommerceOrderRepository from '../../Database/Repositories/OrderRepository';
 import CommerceCouponService from './Coupons';
 import CommerceShippingService from './Shipping';
 

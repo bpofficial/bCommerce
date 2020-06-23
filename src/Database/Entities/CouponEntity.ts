@@ -1,6 +1,12 @@
-import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm';
-import CommerceProduct from './ProductEntity';
-import CommerceTerm from './TermEntity';
+import {MaxLength} from '@tsed/common';
+import {IsEmail, Min} from 'class-validator';
+import {
+	Column,
+	CreateDateColumn,
+	Entity,
+	PrimaryGeneratedColumn,
+	UpdateDateColumn,
+} from 'typeorm';
 
 @Entity({name: 'commerce_coupons'})
 export default class CommerceCoupon {
@@ -8,12 +14,14 @@ export default class CommerceCoupon {
 	public id: number;
 
 	@Column({type: 'varchar', length: 50, nullable: false, unique: true})
+	@MaxLength(50)
 	public code: string;
 
 	@Column({type: 'text', nullable: true})
 	public description: string | null;
 
 	@Column({name: 'amount', type: 'float', nullable: false})
+	@Min(0)
 	public couponAmount: number;
 
 	@Column({name: 'free_shipping', nullable: false, default: false})
@@ -23,6 +31,7 @@ export default class CommerceCoupon {
 	public expiryDate: Date | null;
 
 	@Column({name: 'minimum_amount', type: 'float', nullable: true})
+	@Min(0)
 	public minimumAmount: number | null;
 
 	@Column({name: 'maximum_amount', type: 'float', nullable: true})
@@ -34,14 +43,31 @@ export default class CommerceCoupon {
 	@Column({name: 'exclude_sale_items', nullable: false, default: false})
 	public excludeSaleItems: boolean;
 
-	public products: CommerceProduct[];
-	public excludeProducts: CommerceProduct[];
-	public productCategories: CommerceTerm[];
-	public excludeProductCategories: CommerceTerm[];
-	public customerEmail: string;
+	@Column({type: 'simple-array', nullable: true})
+	public products: number[] | null;
+
+	@Column({type: 'simple-array', nullable: true})
+	public excludeProducts: number[] | null;
+
+	@Column({type: 'simple-array', nullable: true})
+	public productCategories: number[] | null;
+
+	@Column({type: 'simple-array', nullable: true})
+	public excludeProductCategories: number[] | null;
+
+	@Column({
+		name: 'customer_email',
+		type: 'varchar',
+		length: 255,
+		nullable: true,
+	})
+	@IsEmail()
+	@MaxLength(255)
+	public customerEmail: string | null;
 
 	@Column({name: 'usage_limit', type: 'int', nullable: true, unsigned: true})
-	public usageLimit: number;
+	@Min(0)
+	public usageLimit: number | null;
 
 	@Column({
 		name: 'usage_limit_per_user',
@@ -49,8 +75,14 @@ export default class CommerceCoupon {
 		nullable: true,
 		unsigned: true,
 	})
-	public usageLimitPerUser: number;
+	public usageLimitPerUser: number | null;
 
 	@Column({name: 'usage_count', type: 'int', nullable: true, unsigned: true})
 	public usageCount: number | null;
+
+	@CreateDateColumn({name: 'date_created'})
+	public dateCreated: Date;
+
+	@UpdateDateColumn({name: 'date_modified'})
+	public dateModified: Date;
 }

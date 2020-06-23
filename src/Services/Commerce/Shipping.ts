@@ -1,5 +1,5 @@
 import {Service} from '@tsed/di';
-import CommerceShipping from '../../Entities/ShippingEntity';
+import CommerceShipping from '../../Database/Entities/ShippingEntity';
 
 @Service()
 export default class CommerceShippingService {

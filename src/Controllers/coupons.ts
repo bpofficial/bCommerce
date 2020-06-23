@@ -1,3 +1,7 @@
+/**
+ *
+ * Author: Brayden Phillips
+ */
 import {
 	BodyParams,
 	Controller,
@@ -12,8 +16,8 @@ import {
 import {BadRequest} from '@tsed/exceptions';
 import {CREATED, NO_CONTENT, OK} from 'http-status-codes';
 import Security from '../Constants/SECURITY';
-import JWT from '../Decorators/JWT';
-import CommerceCoupon from '../Entities/CouponEntity';
+import JWT from '../Security/JWT';
+import CommerceCoupon from '../Database/Entities/CouponEntity';
 import CommerceCouponService from '../Services/Commerce/Coupons';
 
 @Controller('/coupons')
@@ -73,7 +77,7 @@ export default class CommerceCouponsController {
 		type: CommerceCoupon,
 		description: 'Create a coupon.',
 	})
-	@JWT({security: Security.ADMIN})
+	// @JWT({security: Security.ADMIN})
 	public async createCoupon(@BodyParams() coupon: Partial<CommerceCoupon>) {
 		return this.couponService.createOne(coupon);
 	}

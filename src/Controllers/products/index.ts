@@ -1,6 +1,10 @@
+/**
+ *
+ * Author: Brayden Phillips
+ */
 import {Controller, Delete, Get, PathParams, Post, Put} from '@tsed/common';
 import Security from '../../Constants/SECURITY';
-import JWT from '../../Decorators/JWT';
+import JWT from '../../Security/JWT';
 
 @Controller('/products')
 export default class CommerceProductsController {
