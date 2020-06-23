@@ -21,6 +21,7 @@ export default class APIErrorHandler extends GlobalErrorHandlerMiddleware {
 				error: {
 					code: errors.status,
 					message: errors.message,
+					body: errors?.body,
 				},
 			});
 		} else {
