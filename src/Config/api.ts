@@ -1,6 +1,7 @@
 import '@tsed/ajv';
 import {Configuration, Inject, PlatformApplication} from '@tsed/common';
 import '@tsed/platform-express';
+import '@tsed/swagger';
 const compress = require('compression');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
