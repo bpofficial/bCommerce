@@ -39,7 +39,10 @@ export default class CommerceOrdersController {
 	 * @see {@link CommerceOrder | Orders}
 	 */
 	@Get()
-	@Status(OK)
+	@Status(OK, {
+		type: CommerceOrder,
+		description: 'Get all Orders',
+	})
 	@JWT({security: Security.ADMIN})
 	public async getOrders() {
 		return this.orderService.getAll();
@@ -57,7 +60,10 @@ export default class CommerceOrdersController {
 	 * @see {@link CommerceOrder | Orders}
 	 */
 	@Get('/:id')
-	@Status(OK)
+	@Status(OK, {
+		type: CommerceOrder,
+		description: 'Get an Order by id',
+	})
 	@JWT({security: Security.HMAC})
 	public async getOrder(@PathParams('id') id: string) {
 		if (isNaN(id as any)) {
@@ -86,7 +92,10 @@ export default class CommerceOrdersController {
 	 * @see {@link CommerceOrder | Orders}
 	 */
 	@Post()
-	@Status(CREATED)
+	@Status(CREATED, {
+		type: CommerceOrder,
+		description: 'Create a new Order',
+	})
 	@JWT({security: Security.HMAC})
 	public async createOrder(
 		@Request() request: Request,

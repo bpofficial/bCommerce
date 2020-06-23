@@ -1,7 +1,7 @@
 import {Controller, Get, Status} from '@tsed/common';
 
 @Controller('/health')
-export default class HealthController {
+export default class CommerceHealthController {
 	/**
 	 * Check the health of the Server.
 	 * This can include other service-related checks,

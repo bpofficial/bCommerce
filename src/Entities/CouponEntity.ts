@@ -7,6 +7,12 @@ export default class CommerceCoupon {
 	@PrimaryGeneratedColumn('increment', {type: 'bigint', unsigned: true})
 	public id: number;
 
+	@Column({type: 'varchar', length: 50, nullable: false, unique: true})
+	public code: string;
+
+	@Column({type: 'text', nullable: true})
+	public description: string | null;
+
 	@Column({name: 'amount', type: 'float', nullable: false})
 	public couponAmount: number;
 

@@ -27,15 +27,16 @@ export default class CommerceCouponService {
 	}
 
 	public getOne(id: number) {
-		return this.couponRepository.findOne(id);
+		return this.couponRepository.findOne(id) || {};
 	}
 
 	public getAll() {
-		return this.couponRepository.find();
+		return this.couponRepository.find() || [];
 	}
 
-	public updateOne(coupon: Partial<CommerceCoupon>) {
-		return this.couponRepository.save(coupon);
+	public async updateOne(coupon: Partial<CommerceCoupon>) {
+		await this.couponRepository.update(coupon.id, coupon);
+		return this.couponRepository.findOne({id: coupon.id});
 	}
 
 	public deleteOne(id: number) {

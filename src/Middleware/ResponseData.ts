@@ -21,6 +21,7 @@ export default class EnvelopeResponseMiddleware extends SendResponseMiddleware {
 						code: response.statusCode,
 						message: response.statusMessage,
 					},
+					data: {},
 				});
 			}
 		} else {

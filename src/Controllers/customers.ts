@@ -53,7 +53,7 @@ export default class CommerceCustomersController {
 	@Get('/:id')
 	@Status(OK, {
 		type: CommerceCustomer,
-		description: 'Get a customer by their id',
+		description: 'Get a customer by their id.',
 	})
 	@JWT({security: Security.HMAC})
 	public async getCustomer(@PathParams('id') id: string) {
