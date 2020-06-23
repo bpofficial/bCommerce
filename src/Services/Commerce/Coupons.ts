@@ -53,7 +53,8 @@ export default class CommerceCouponService {
 				throw err;
 			}
 		});
-		return this.couponRepository.save(coupon);
+		const result = await this.couponRepository.save(coupon);
+		return this.couponRepository.findOne({id: result.id});
 	}
 
 	/**
