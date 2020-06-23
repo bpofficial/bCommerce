@@ -45,4 +45,11 @@ export default class CommerceCustomer {
 	@ValidateIf((o: Partial<CommerceCustomer>) => !o?.billing)
 	@IsNotEmptyObject()
 	public shipping: CommerceShipping;
+
+	public constructor(o: Partial<CommerceCustomer>) {
+		this.id = o?.id;
+		this.user = o?.user;
+		this.billing = o?.billing;
+		this.shipping = o?.shipping;
+	}
 }
