@@ -14,11 +14,10 @@ import {
 	Status,
 } from '@tsed/common';
 import {BadRequest} from '@tsed/exceptions';
-import {Description} from '@tsed/swagger';
 import {CREATED, NO_CONTENT, OK} from 'http-status-codes';
 import Security from '../Constants/SECURITY';
-import JWT from '../Security/JWT';
 import CommerceCustomer from '../Database/Entities/CustomerEntity';
+import JWT from '../Security/JWT';
 import CommerceCustomerService from '../Services/Commerce/Customer';
 
 @Controller('/customers')

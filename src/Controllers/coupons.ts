@@ -16,8 +16,8 @@ import {
 import {BadRequest} from '@tsed/exceptions';
 import {CREATED, NO_CONTENT, OK} from 'http-status-codes';
 import Security from '../Constants/SECURITY';
-import JWT from '../Security/JWT';
 import CommerceCoupon from '../Database/Entities/CouponEntity';
+import JWT from '../Security/JWT';
 import CommerceCouponService from '../Services/Commerce/Coupons';
 
 @Controller('/coupons')
