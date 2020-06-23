@@ -85,4 +85,27 @@ export default class CommerceCoupon {
 
 	@UpdateDateColumn({name: 'date_modified'})
 	public dateModified: Date;
+
+	public constructor(o: Partial<CommerceCoupon>) {
+		this.id = o?.id;
+		this.code = o?.code;
+		this.description = o?.description || null;
+		this.couponAmount = o?.couponAmount;
+		this.freeShipping = o?.freeShipping || false;
+		this.expiryDate = o?.expiryDate || null;
+		this.minimumAmount = o?.minimumAmount || null;
+		this.maximumAmount = o?.maximumAmount || null;
+		this.individualUse = o?.individualUse || false;
+		this.excludeSaleItems = o?.excludeSaleItems || false;
+		this.products = o?.products || null;
+		this.excludeProducts = o?.excludeProducts || null;
+		this.productCategories = o?.productCategories || null;
+		this.excludeProductCategories = o?.excludeProductCategories || null;
+		this.customerEmail = o?.customerEmail || null;
+		this.usageLimit = o?.usageLimit || null;
+		this.usageLimitPerUser = o?.usageLimitPerUser || null;
+		this.usageCount = o?.usageCount || null;
+		this.dateCreated = o?.dateCreated;
+		this.dateModified = o?.dateModified;
+	}
 }
