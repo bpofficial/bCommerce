@@ -58,7 +58,7 @@ export default class CommerceCustomersController {
 		type: CommerceCustomer,
 		description: 'Get a customer by their id.',
 	})
-	@JWT({security: Security.HMAC})
+	// @JWT({security: Security.HMAC})
 	public async getCustomer(@PathParams('id') id: string) {
 		return this.customerService.getOne(id);
 	}
@@ -78,7 +78,7 @@ export default class CommerceCustomersController {
 		type: String,
 		description: 'Create a customer.',
 	})
-	@JWT({security: Security.HMAC})
+	// @JWT({security: Security.HMAC})
 	public async createCustomer(
 		@BodyParams() customer: Partial<CommerceCustomer>,
 	) {

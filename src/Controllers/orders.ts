@@ -16,8 +16,8 @@ import {
 import {BadRequest} from '@tsed/exceptions';
 import {CREATED, OK} from 'http-status-codes';
 import Security from '../Constants/SECURITY';
-import JWT from '../Security/JWT';
 import CommerceOrder from '../Database/Entities/OrderEntity';
+import JWT from '../Security/JWT';
 import CommerceOrderService from '../Services/Commerce/Orders';
 
 /**
