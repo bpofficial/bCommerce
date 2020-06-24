@@ -1,5 +1,4 @@
 import {Inject, Service} from '@tsed/di';
-import {BadRequest} from '@tsed/exceptions';
 import {UseConnection} from '@tsed/typeorm';
 import {FindOperator} from 'typeorm';
 import CommerceCustomer from '../../Database/Entities/CustomerEntity';
@@ -11,19 +10,12 @@ export default class CommerceCustomerService {
 	@UseConnection('default')
 	private customerRepository: CommerceCustomerRepository;
 
-	public async createOne(customer: Partial<CommerceCustomer>) {
-		if (!customer?.shipping) {
-			customer.shipping = customer.billing;
-		}
-		if (!customer?.billing) {
-			throw new BadRequest(
-				"Expected an address for at least 'billing' but received nothing.",
-			);
-		}
-		if (!customer.user) {
-			customer.user = null;
-		}
-		return this.customerRepository.save(customer);
+	public async createOne(obj: Partial<CommerceCustomer>) {
+		const customer = new CommerceCustomer(obj);
+		const result = await this.customerRepository.save(customer);
+		return this.customerRepository.findOne(result.id, {
+			relations: ['billing', 'shipping'],
+		});
 	}
 
 	public async getOne(id: number | string) {
@@ -42,7 +34,7 @@ export default class CommerceCustomerService {
 		const customerRecord = await this.customerRepository.findOne(id, {
 			relations: ['billing', 'shipping'],
 		});
-		const update = {
+		const obj = {
 			...customerRecord,
 			billing: {
 				...(customerRecord?.billing ? customerRecord?.billing : {}),
@@ -53,8 +45,9 @@ export default class CommerceCustomerService {
 				...(customer?.shipping ? customer?.shipping : {}),
 			},
 		};
-		await this.customerRepository.save(update);
-		return this.customerRepository.findOne(id, {
+		const update = new CommerceCustomer(obj as any);
+		const result = await this.customerRepository.save(update);
+		return this.customerRepository.findOne(result.id, {
 			relations: ['billing', 'shipping'],
 		});
 	}

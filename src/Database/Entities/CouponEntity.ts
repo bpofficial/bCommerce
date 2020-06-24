@@ -1,6 +1,9 @@
 import {MaxLength} from '@tsed/common';
-import {IsEmail, Min} from 'class-validator';
+import {BadRequest} from '@tsed/exceptions';
+import {IsEmail, Min, validate} from 'class-validator';
 import {
+	BeforeInsert,
+	BeforeUpdate,
 	Column,
 	CreateDateColumn,
 	Entity,
@@ -75,10 +78,18 @@ export default class CommerceCoupon {
 		nullable: true,
 		unsigned: true,
 	})
+	@Min(0)
 	public usageLimitPerUser: number | null;
 
-	@Column({name: 'usage_count', type: 'int', nullable: true, unsigned: true})
-	public usageCount: number | null;
+	@Column({
+		name: 'usage_count',
+		type: 'int',
+		nullable: true,
+		unsigned: true,
+		default: 0,
+	})
+	@Min(0)
+	public usageCount: number;
 
 	@CreateDateColumn({name: 'date_created'})
 	public dateCreated: Date;
@@ -104,8 +115,24 @@ export default class CommerceCoupon {
 		this.customerEmail = o?.customerEmail || null;
 		this.usageLimit = o?.usageLimit || null;
 		this.usageLimitPerUser = o?.usageLimitPerUser || null;
-		this.usageCount = o?.usageCount || null;
+		this.usageCount = o?.usageCount || 0;
 		this.dateCreated = o?.dateCreated;
 		this.dateModified = o?.dateModified;
+	}
+
+	@BeforeInsert()
+	@BeforeUpdate()
+	public async validate() {
+		await validate(this, {
+			skipUndefinedProperties: true,
+			skipNullProperties: true,
+		}).then((errors) => {
+			if (errors.length) {
+				const err = new BadRequest('Failed to validate coupon.');
+				err.body = errors.map((i) => Object.values(i.constraints));
+				err.body = err.body.flat(2);
+				throw err;
+			}
+		});
 	}
 }

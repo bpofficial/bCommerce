@@ -36,23 +36,14 @@ export default class CommerceCouponService {
 	 * @param coupon The coupon to be created.
 	 * @see {@link CommerceCoupon | Coupons}
 	 */
-	public async createOne(coupon: Partial<CommerceCoupon>) {
-		const isNotUnique = coupon?.code
-			? !!(await this.couponRepository.find({code: coupon.code})).length
+	public async createOne(obj: Partial<CommerceCoupon>) {
+		const isNotUnique = obj?.code
+			? !!(await this.couponRepository.find({code: obj.code})).length
 			: false;
 		if (isNotUnique) {
 			throw new BadRequest('A coupon with this code already exists.');
 		}
-		await validate(new CommerceCoupon(coupon), {
-			skipNullProperties: true,
-		}).then((errors) => {
-			if (errors.length) {
-				const err = new BadRequest('Failed to validate coupon.');
-				err.body = errors.map((i) => Object.values(i.constraints));
-				err.body = err.body.flat(2);
-				throw err;
-			}
-		});
+		const coupon = new CommerceCoupon(obj);
 		const result = await this.couponRepository.save(coupon);
 		return this.couponRepository.findOne({id: result.id});
 	}
