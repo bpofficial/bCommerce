@@ -18,7 +18,7 @@ export default class CommerceProductAttributeController {
 	@Get('/:id')
 	public getAttribute(@PathParams('id') id: string) {}
 
-	@Get('/attributes')
+	@Get()
 	public getAttributes() {}
 
 	@Post()
