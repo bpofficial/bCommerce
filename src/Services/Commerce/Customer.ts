@@ -52,7 +52,7 @@ export default class CommerceCustomerService {
 		});
 	}
 
-	public async deleteOne(id: number | FindOperator<number>) {
+	public async deleteOne(id: number) {
 		this.customerRepository.delete({id});
 	}
 }
