@@ -3,3 +3,5 @@ dist/
 coverage/
 docs/
 .env
+.DS_STORE
+google-app-creds.json
